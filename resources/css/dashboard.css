@@ -30,11 +30,11 @@ body {
   }
   ul li a{
     text-decoration:none;
-    color:#000;
-    background:#ffc;
+    color:#ffffff;
+    background:rgb(0, 0, 0);
     display:block;
-    height:10em;
-    width:10em;
+    height:20em;
+    width:20em;
     padding:1em;
     box-shadow: 5px 5px 7px rgba(33,33,33,.7);
     transform: rotate(-6deg);
@@ -45,13 +45,13 @@ body {
     transform:rotate(4deg);
     position:relative;
     top:5px;
-    background:#cfc;
+    background:rgb(0, 0, 0);
   }
   ul li:nth-child(3n) a{
     transform:rotate(-3deg);
     position:relative;
     top:-5px;
-    background:#ccf;
+    background:rgb(0, 0, 0);
   }
   ul li:nth-child(5n) a{
     transform:rotate(5deg);
