@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
 
+
+
+.titulo {
+  font-family: "Sigmar", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #c8dbb4;
+}
 html {
   scroll-behavior: smooth;
 }

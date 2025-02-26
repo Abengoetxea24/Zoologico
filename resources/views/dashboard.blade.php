@@ -27,7 +27,8 @@
           <!-- Contenedor flex para centrar el párrafo -->
           <div class="flex flex-col justify-center items-center h-full mt-[-100px]">
               <!-- Párrafo centrado -->
-              <h1 class="text-5xl font-bold text-white text-center">Bienvenidos a SelvaNova</h1>
+              <h1 class="text-[100px] font-bold text-center titulo">Bienvenidos a </h1>
+              <h1 class="text-[100px] font-bold text-center mt-[-10px] titulo"> SelvaNova</h1>
               
           
           
