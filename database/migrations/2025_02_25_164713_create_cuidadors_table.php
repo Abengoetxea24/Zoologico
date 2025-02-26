@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('cuidadors', function (Blueprint $table) {
             $table->id();
+            $table->string("nombre");
+            $table->string("apellidos");
+            $table->string("telefono");
+            $table->string("email");
             $table->timestamps();
         });
     }

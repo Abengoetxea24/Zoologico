@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
+            $table->string("nombre");
+            $table->unsignedBigInteger("habitat_id");
+            $table->string("especie");
+            $table->date("fecha_nacimiento");
+            $table->foreign("habitat_id")->references("id")->on("habitats");
             $table->timestamps();
         });
     }
