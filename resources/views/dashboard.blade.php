@@ -25,9 +25,15 @@
           </div>
   
           <!-- Contenedor flex para centrar el párrafo -->
-          <div class="flex-1 flex justify-center items-center">
+          <div class="flex flex-col justify-center items-center h-full mt-[-100px]">
               <!-- Párrafo centrado -->
               <h1 class="text-5xl font-bold text-white text-center">Bienvenidos a SelvaNova</h1>
+              
+          
+          
+              <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4">
+                <a href="#animales" class="no-underline">Conoce a nuestros Animales</a>
+            </button>
           </div>
          
 
@@ -77,7 +83,7 @@ $animales = [
            
 ?> 
 
-      <div class="flex justify-center items-center h-screen" style="background-image: url('{{ asset('imagenes/fondo2.jpg') }}');">
+      <div id="animales" class="flex justify-center items-center h-screen" style="background-image: url('{{ asset('imagenes/fondo2.jpg') }}');">
             <div>
               <ul>
                 <?php foreach ($animales as $animal) { ?>
