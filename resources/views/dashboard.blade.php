@@ -63,15 +63,17 @@
             
             
                 <?php
-$animales = array (
-    ["nombre" => "León", "descripcion" => "El 'rey de la selva'. Felino grande y poderoso.", "imagen" => "Leon.jpg"],
-    ["nombre" => "Jirafa", "descripcion" => "El animal más alto. Largo cuello y manchas únicas.", "imagen" => "Jirafa.jpg"],
-    ["nombre" => "Elefante", "descripcion" => "Mamífero terrestre más grande. Trompa larga y colmillos de marfil.", "imagen" => "Elefante.jpg"],
-    ["nombre" => "Pingüino", "descripcion" => "Ave no voladora. Excelente nadador en climas fríos.", "imagen" => "Pinguino.jpg"],
-    ["nombre" => "Tigre", "descripcion" => "Felino más grande. Cazador solitario con pelaje rayado.", "imagen" => "Tigre.jpg"],
-    ["nombre" => "Cebra", "descripcion" => "Animal africano. Pelaje blanco y negro con rayas únicas.", "imagen" => "Cebra.jpeg"],
-    ["nombre" => "Oso", "descripcion" => "Gran mamífero omnívoro. Fuerte y peludo, habita en bosques y montañas.", "imagen" => "Oso.jpeg"]
-            );
+$animales = [
+    ['id' => 2, 'nombre' => 'León', 'habitat_id' => 1, 'especie' => 'Panthera leo', 'fecha_nacimiento' => '2018-05-15', 'descripcion' => "El 'rey de la selva'. Felino grande y poderoso.", 'imagen' => 'Leon.jpg'],
+    ['id' => 3, 'nombre' => 'Jirafa', 'habitat_id' => 1, 'especie' => 'Giraffa camelopardalis', 'fecha_nacimiento' => '2019-03-22', 'descripcion' => 'El animal más alto. Largo cuello y manchas únicas.', 'imagen' => 'Jirafa.jpg'],
+    ['id' => 4, 'nombre' => 'Elefante', 'habitat_id' => 1, 'especie' => 'Loxodonta africana', 'fecha_nacimiento' => '2015-07-10', 'descripcion' => 'Mamífero terrestre más grande. Trompa larga y colmillos de marfil.', 'imagen' => 'Elefante.jpg'],
+    ['id' => 5, 'nombre' => 'Pingüino', 'habitat_id' => 1, 'especie' => 'Aptenodytes forsteri', 'fecha_nacimiento' => '2020-11-30', 'descripcion' => 'Ave no voladora. Excelente nadador en climas fríos.', 'imagen' => 'Pinguino.jpg'],
+    ['id' => 6, 'nombre' => 'Tigre', 'habitat_id' => 1, 'especie' => 'Panthera tigris', 'fecha_nacimiento' => '2017-09-05', 'descripcion' => 'Felino más grande. Cazador solitario con pelaje rayado.', 'imagen' => 'Tigre.jpg'],
+    ['id' => 7, 'nombre' => 'Cebra', 'habitat_id' => 1, 'especie' => 'Equus quagga', 'fecha_nacimiento' => '2016-12-18', 'descripcion' => 'Animal africano. Pelaje blanco y negro con rayas únicas.', 'imagen' => 'Cebra.jpeg'],
+    ['id' => 8, 'nombre' => 'Oso', 'habitat_id' => 1, 'especie' => 'Ursus arctos', 'fecha_nacimiento' => '2014-04-25', 'descripcion' => 'Gran mamífero omnívoro. Fuerte y peludo, habita en bosques y montañas.', 'imagen' => 'Oso.jpeg'],
+    ['id' => 38, 'nombre' => 'Suricato', 'habitat_id' => 1, 'especie' => 'Suricata suricatta', 'fecha_nacimiento' => '2024-11-07', 'descripcion' => 'Pequeño mamífero carnívoro de la familia de las mangostas. Vive en grupos sociales en las llanuras y desiertos del sur de África. Conocido por su comportamiento vigilante y postura erguida.', 'imagen' => 'Suricato.jpeg'],
+    ['id' => 39, 'nombre' => 'Lémur', 'habitat_id' => 1, 'especie' => 'Lemur catta', 'fecha_nacimiento' => '2024-12-10', 'descripcion' => 'Primate endémico de Madagascar. Conocido por su cola anillada y su comportamiento social. Habita en bosques y zonas arbóreas.', 'imagen' => 'Lemur.jpeg']
+];
            
 ?> 
 
