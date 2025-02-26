@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("especie");
             $table->date("fecha_nacimiento");
             $table->foreign("habitat_id")->references("id")->on("habitats");
+            $table->string("descripcion");
+            $table->string("imagen");
             $table->timestamps();
         });
     }

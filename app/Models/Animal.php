@@ -14,7 +14,9 @@ class Animal extends Model
         'nombre',
         'especie',
         'fecha_nacimiento',
-        'habitat_id'
+        'habitat_id',
+        'descripcion',
+        'imagen'
     ];
 
     public function habitat(): BelongsTo

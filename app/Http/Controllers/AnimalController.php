@@ -13,7 +13,11 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+       // Obtener todos los tripulantes de la base de datos
+       $animales = Animal::all();
+
+       // Pasar los tripulantes a la vista 'tripulantes.index'
+       return view('animales.index', compact('animales'));
     }
 
     /**
@@ -21,7 +25,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        return view('animales.create');
     }
 
     /**
@@ -29,7 +33,27 @@ class AnimalController extends Controller
      */
     public function store(StoreAnimalRequest $request)
     {
-        //
+        
+        $animal = new Animal;
+
+        $animal->nombre = $request->nombre;
+        $animal->especie = $request->especie;
+        $animal->fecha_nacimiento = $request->fecha_nacimiento;
+        $animal->habitat_id = $request->habitat_id;
+        $animal->descripcion = $request->descripcion;
+
+        // Guardar la imagen
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName(); // Nombre único para la imagen
+            $rutaImagen = $imagen->storeAs('public/imagenes', $nombreImagen); // Guardar en la carpeta "public/imagenes"
+            $animal->imagen = $nombreImagen; // Guardar el nombre de la imagen en la base de datos
+        }
+
+        $animal->save();
+
+        return redirect()->route('animales.index')->with('success', 'Animal creado correctamente');
+
     }
 
     /**
