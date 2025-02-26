@@ -3,6 +3,7 @@
   
 
 
+
     <title>SelvaNova</title>
 
     
@@ -71,6 +72,7 @@ $animales = array (
     ["nombre" => "Cebra", "descripcion" => "Animal africano. Pelaje blanco y negro con rayas únicas.", "imagen" => "Cebra.jpeg"],
     ["nombre" => "Oso", "descripcion" => "Gran mamífero omnívoro. Fuerte y peludo, habita en bosques y montañas.", "imagen" => "Oso.jpeg"]
             );
+           
 ?> 
 
       <div class="flex justify-center items-center h-screen" style="background-image: url('{{ asset('imagenes/fondo2.jpg') }}');">

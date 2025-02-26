@@ -15,12 +15,12 @@ Route::get('/dashboard', function () {
 Route::get('/animales', AnimalController::class .'@index')->name('animales.index')->middleware('auth');
 Route::get('/animales/añadir', AnimalController::class .'@create')->name('animales.create')->middleware('auth');
 Route::post('/animales', [AnimalController::class, 'store'])->name('animales.store')->middleware('auth');
-Route::delete('/animales/{tripulante}', AnimalController::class .'@destroy')->name('animales.destroy')->middleware('auth');
-// Route::delete('/animales/{tripulante}', [AnimalController::class, 'destroy'])->name('animales.destroy');
-Route::put('/animales/{tripulante}', [AnimalController::class, 'update'])->name('animales.update')->middleware('auth');
-Route::get('/animales/{tripulante}/edit', [AnimalController::class, 'edit'])->name('animales.edit')->middleware('auth');
+Route::delete('/animales/{animal}', AnimalController::class .'@destroy')->name('animales.destroy')->middleware('auth');
+// Route::delete('/animales/{animal}', [AnimalController::class, 'destroy'])->name('animales.destroy');
+Route::put('/animales/{animal}', [AnimalController::class, 'update'])->name('animales.update')->middleware('auth');
+Route::get('/animales/{animal}/edit', [AnimalController::class, 'edit'])->name('animales.edit')->middleware('auth');
 
-Route::get('/animales/show/{tripulante}', AnimalController::class . '@show')->name('animales.show')->middleware('auth');
+Route::get('/animales/show/{animal}', AnimalController::class . '@show')->name('animales.show')->middleware('auth');
 
 Route::get('/admin', function () {
     return view('administracion');

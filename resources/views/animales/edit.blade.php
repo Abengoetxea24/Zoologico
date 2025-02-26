@@ -1,20 +1,39 @@
-<form action="{{ route ('medicos.update', $medico->id)}}" method="post">
+<form action="{{ isset($animal) ? route('animales.update', $animal->id) : route('animales.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('PUT')
+    @if(isset($animal))
+        @method('PUT')
+    @endif
 
-    <lablel for = "nombre">Nombre:</lablel>
-    <input type="text" name="nombre" value="{{ old('nombre', $medico->nombre)}}">
+    <!-- Campo: Nombre -->
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" value="{{ isset($animal) ? $animal->nombre : old('nombre') }}" required>
+    <br><br>
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" name="apellido" value="{{ old('apellido', $medico->apellido)}}">
+    <!-- Campo: Especie -->
+    <label for="especie">Especie:</label>
+    <input type="text" id="especie" name="especie" value="{{ isset($animal) ? $animal->especie : old('especie') }}" required>
+    <br><br>
 
-    
-    <label for="fecha_incorporacion">Fecha Incorporación</label>
-    <input type="text" name="fecha_incorporacion" value="{{ old('fecha_incorporacion', $medico->fecha_incorporacion)}}">
+    <!-- Campo: Fecha de Nacimiento -->
+    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ isset($animal) ? $animal->fecha_nacimiento : old('fecha_nacimiento') }}" required>
+    <br><br>
 
+    <!-- Campo: Habitat ID -->
+    <label for="habitat_id">ID del Hábitat:</label>
+    <input type="number" id="habitat_id" name="habitat_id" value="{{ isset($animal) ? $animal->habitat_id : old('habitat_id') }}" required>
+    <br><br>
 
-    <label for="fecha_baja">Fecha Baja</label>
-    <input type="text" name="fecha_baja" value="{{ old('fecha_baja', $medico->fecha_baja)}}">
+    <!-- Campo: Imagen -->
+    <label for="imagen">Imagen:</label>
+    <input type="file" id="imagen" name="imagen" accept="image/*" {{ !isset($animal) ? 'required' : '' }}>
+    <br><br>
 
-    <button type="submit">Actualizar</button>
+    <!-- Campo: Descripción -->
+    <label for="descripcion">Descripción:</label><br>
+    <textarea id="descripcion" name="descripcion" rows="4" cols="50" required>{{ isset($animal) ? $animal->descripcion : old('descripcion') }}</textarea>
+    <br><br>
+
+    <!-- Botón de Envío -->
+    <button type="submit">{{ isset($animal) ? 'Actualizar' : 'Crear' }} Animal</button>
 </form>
