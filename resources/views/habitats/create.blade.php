@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Añadir un medico</title>
+    <title>Añadir un Habitat</title>
 </head>
 <body>
-    <form action="{{ route('medicos.store')}}" method="post">
+    <form action="{{ route('habitats.store')}}" method="post">
         @csrf
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre"><br><br>
-        <label for="apelldio">Apellido:</label>
-        <input type="text" id="apellido" name="apellido"><br><br>
-        <label for="fecha_incorporacion">Fecha Incorporación:</label>
-        <input type="date" id="fecha_incorporacion" name="fecha_incorporacion"><br><br>
-        <label for="fecha_baja">Fecha Baja:</label>
-        <input type="date" id="fecha_baja" name="fecha_baja"><br><br>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+
+        <label for="temperatura">Temperatura</label>
+        <input type="text" name="temperatura" id="temperatura">
+
+        <label for="humedad">Humedad</label>
+        <input type="text" name="humedad" id="humedad">
+        
+    
         <input type="submit" value="Añadir">
       </form> 
 </body>

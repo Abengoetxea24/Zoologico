@@ -1,20 +1,15 @@
-<form action="{{ route ('medicos.update', $medico->id)}}" method="post">
+<form action="{{ route ('habitats.update', $habitat->id)}}" method="post">
     @csrf
     @method('PUT')
 
     <lablel for = "nombre">Nombre:</lablel>
-    <input type="text" name="nombre" value="{{ old('nombre', $medico->nombre)}}">
+    <input type="text" name="nombre" value="{{ old('nombre', $habitat->nombre)}}">
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" name="apellido" value="{{ old('apellido', $medico->apellido)}}">
+    <label for="temperatura">Temperatura:</label>
+    <input type="text" name="temperatura" value="{{ old('temperatura', $habitat->temperatura)}}">
 
-    
-    <label for="fecha_incorporacion">Fecha Incorporación</label>
-    <input type="text" name="fecha_incorporacion" value="{{ old('fecha_incorporacion', $medico->fecha_incorporacion)}}">
-
-
-    <label for="fecha_baja">Fecha Baja</label>
-    <input type="text" name="fecha_baja" value="{{ old('fecha_baja', $medico->fecha_baja)}}">
+    <label for="humedad">Humedad:</label>
+    <input type="text" name="humedad" value="{{ old('humedad', $habitat->humedad)}}">
 
     <button type="submit">Actualizar</button>
 </form>

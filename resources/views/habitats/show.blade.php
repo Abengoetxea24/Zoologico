@@ -9,11 +9,11 @@
 <body>
     <h1>Select</h1>
     <ul>
-        <li>{{ $medico->id }} </li>
-        <li>{{ $medico->nombre }} </li>
-        <li>{{ $medico->apellido }} </li>
-        <li>{{ $medico->fecha_incorporacion }} </li>
-        <li>{{ $medico->fecha_baja }} </li>
+        <li>{{ $habitat->id }} </li>
+        <li>{{ $habitat->nombre }} </li>
+        <li>{{ $habitat->temperatura }} </li>
+        <li>{{ $habitat->humedad }} </li>
+        
     </ul>
 </body>
 </html>

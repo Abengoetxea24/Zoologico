@@ -13,7 +13,11 @@ class HabitatController extends Controller
      */
     public function index()
     {
-        //
+         // Obtener todos los habitats de la base de datos
+       $habitats = Habitat::all();
+
+       // Pasar los habitats a la vista 'habitats.index'
+       return view('habitats.index', compact('habitats'));
     }
 
     /**
@@ -21,7 +25,7 @@ class HabitatController extends Controller
      */
     public function create()
     {
-        //
+        return view('habitats.create');
     }
 
     /**
@@ -29,23 +33,35 @@ class HabitatController extends Controller
      */
     public function store(StoreHabitatRequest $request)
     {
-        //
+        
+        $habitat = new Habitat;
+
+        $habitat->nombre = $request->nombre;
+        $habitat->temperatura = $request->temperatura;
+        $habitat->humedad = $request->humedad;
+
+        $habitat->save();
+
+        return redirect()->route('habitats.index')->with('success', 'Habitat creado correctamente');
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Habitat $habitat)
+    public function show($id)
     {
-        //
+        $habitat = Habitat::find($id);
+        return view('habitats.show', compact('habitat'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Habitat $habitat)
+    public function edit($id)
     {
-        //
+        $habitat = Habitat::find($id);
+        return view('habitats.edit', compact('habitat'));
     }
 
     /**
@@ -53,7 +69,16 @@ class HabitatController extends Controller
      */
     public function update(UpdateHabitatRequest $request, Habitat $habitat)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'temperatura' => 'required',
+            'humedad' => 'required'
+        ]);
+
+        $habitat->update($request->all());
+
+        return redirect()->route('habitats.index')
+            ->with('success', 'Habitat actualizado correctamente.');
     }
 
     /**
@@ -61,6 +86,8 @@ class HabitatController extends Controller
      */
     public function destroy(Habitat $habitat)
     {
-        //
+        $habitat->delete();
+ 
+        return redirect()->route('habitats.index')->with('success', 'Habitat eliminado correctamente');
     }
 }
