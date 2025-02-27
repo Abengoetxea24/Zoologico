@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("apellidos");
             $table->string("telefono");
             $table->string("email");
+            $table->string("especialidad");
             $table->timestamps();
         });
     }

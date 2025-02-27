@@ -4,47 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Tripulantes</title>
+    <title>Listado de Cuidadores</title>
 </head>
 <body>
-    <h1>Listado de Medicos</h1>
+    <h1>Listado de Cuidadores</h1>
 
     <table border="1">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Fecha de Incorporación</th>
-                <th>Fecha de Baja</th>
-                <th>Acciones</th>
+                <th>Telefono</th>
+                <th>Mail</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($medicos as $medico)
+            @foreach($cuidadores as $cuidador)
                 <tr>
-                    <td>{{ $medico->id }}</td>
-                    <td>{{ $medico->nombre }}</td>
-                    <td>{{ $medico->apellido }}</td>
-                    <td>{{ $medico->fecha_incorporacion }}</td>
-                    <td>{{ $medico->fecha_baja }}</td>
+                    <td>{{ $cuidador->id }}</td>
+                    <td>{{ $cuidador->nombre }}</td>
+                    <td>{{ $cuidador->apellidos }}</td>
+                    <td>{{ $cuidador->telefono }}</td>
+                    <td>{{ $cuidador->email }}</td>
                     <td>
-                        <a href="{{ route('medicos.edit', $medico->id) }}">Editar</a>
-                        <a href="{{ route('medicos.show', $medico->id) }}">Seleccionar</a>
+                        <a href="{{ route('cuidadores.edit', $cuidador->id) }}">Editar</a>
+                        <a href="{{ route('cuidadores.show', $cuidador->id) }}">Seleccionar</a>
 
-                        <form action="{{ route('medicos.destroy', $medico->id) }}" method="POST" style="display:inline;"> 
+                        <form action="{{ route('cuidadores.destroy', $cuidador->id) }}" method="POST" style="display:inline;"> 
                         
                             @csrf
                             @method('DELETE')
                             <button type="submit">Eliminar</button>
                         </form>
+               
                     </td>
                 </tr>
             @endforeach
             
         </tbody>
     </table>
-    <form action="{{ route('medicos.create') }}" style="display:inline;"> 
+
+    <form action="{{ route('cuidadores.create') }}" style="display:inline;"> 
         
         <button type="submit">Añadir Nuevo</button>
     </form>

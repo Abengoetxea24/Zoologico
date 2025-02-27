@@ -1,20 +1,21 @@
-<form action="{{ route ('medicos.update', $medico->id)}}" method="post">
+<form action="{{ route ('cuidadores.update', $cuidador->id)}}" method="post">
     @csrf
     @method('PUT')
 
     <lablel for = "nombre">Nombre:</lablel>
-    <input type="text" name="nombre" value="{{ old('nombre', $medico->nombre)}}">
+    <input type="text" name="nombre" value="{{ old('nombre', $cuidador->nombre)}}">
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" name="apellido" value="{{ old('apellido', $medico->apellido)}}">
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" name="apellidos" value="{{ old('apellidos', $cuidador->apellidos)}}">
 
-    
-    <label for="fecha_incorporacion">Fecha Incorporación</label>
-    <input type="text" name="fecha_incorporacion" value="{{ old('fecha_incorporacion', $medico->fecha_incorporacion)}}">
+    <label for="telefono">Telefono:</label>
+    <input type="text" name="telefono" value="{{ old('telefono', $cuidador->telefono)}}">
 
+    <label for="email">Email:</label>
+    <input type="text" name="email" value="{{ old('email', $cuidador->email)}}">
 
-    <label for="fecha_baja">Fecha Baja</label>
-    <input type="text" name="fecha_baja" value="{{ old('fecha_baja', $medico->fecha_baja)}}">
+    <label for="especialidad">Especialidad:</label>
+    <input type="text" name="especialidad" value="{{ old('cuidador', $cuidador->especialidad)}}">
 
     <button type="submit">Actualizar</button>
 </form>

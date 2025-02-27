@@ -10,6 +10,14 @@ class Cuidador extends Model
 {
     /** @use HasFactory<\Database\Factories\CuidadorFactory> */
 
+    protected $fillable = [
+        'nombre',
+        'apellidos',
+        'telefono',
+        'email',
+        'especialidad'
+    ];
+
     public function animales(): BelongsToMany
 
     {
