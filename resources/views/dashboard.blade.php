@@ -84,21 +84,22 @@ $animales = [
            
 ?> 
 
-      <div id="animales" class="flex justify-center items-center h-screen" style="background-image: url('{{ asset('imagenes/fondo2.jpg') }}');">
-            <div>
-              <ul>
-                <?php foreach ($animales as $animal) { ?>
-                <li style="height: 100px width: 100px">
-                  <a href="#" >
-                    <img src="{{ asset('imagenes/' . $animal['imagen']) }}" alt="{{ $animal['nombre'] }}">  <h2><?php echo $animal['nombre'] ?></h2>
-                    
-                  </a>
-                </li> <?php } ?>
-                
-              </ul>
-            </div>
-
-        </div>
+<div id="animales" class="flex justify-center items-center h-auto p-4" style="background-image: url('{{ asset('imagenes/fondo2.jpg') }}');">
+    
+        <ul class="flex flex-wrap justify-center gap-4">
+            <?php foreach ($animales as $animal) { ?>
+            <li class="w-80 h-80 flex flex-col items-center justify-between transform transition duration-150 hover:scale-105 hover:z-10">
+                <a href="#" class="block bg-black text-white p-4 shadow-lg transform hover:scale-110 rounded-md">
+                    <img src="{{ asset('imagenes/' . $animal['imagen']) }}" alt="{{ $animal['nombre'] }}" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h2 class="text-center text-xl font-semibold">{{ $animal['nombre'] }}</h2>
+                </a>
+            </li> 
+            <?php } ?>
+        </ul>
+    
+</div>
+        
+     
 
 
 
