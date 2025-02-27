@@ -17,7 +17,7 @@ class AnimalController extends Controller
        $animales = Animal::all();
 
        // Pasar los tripulantes a la vista 'tripulantes.index'
-       return view('animales.index', compact('animales'));
+       return view('admin.animales.index', compact('animales'));
     }
 
     /**
@@ -25,7 +25,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('animales.create');
+        return view('admin.animales.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class AnimalController extends Controller
 
         //return view('dashboard', ['animales' => $animales]);
 
-        return redirect()->route('animales.index')->with('success', 'Animal creado correctamente');
+        return redirect()->route('admin.animales.index')->with('success', 'Animal creado correctamente');
 
     }
 
@@ -64,7 +64,7 @@ class AnimalController extends Controller
     public function show($id)
     {
         $animal = Animal::find($id);
-        return view('animales.show', compact('animal'));
+        return view('admin.animales.show', compact('animal'));
     }
 
     /**
@@ -73,7 +73,7 @@ class AnimalController extends Controller
     public function edit(UpdateAnimalRequest $request, $id)
     {
         $animal = Animal::find($id);
-        return view('animales.edit', compact('animal'));
+        return view('admin.animales.edit', compact('animal'));
     }
     
 
@@ -95,7 +95,7 @@ class AnimalController extends Controller
         $animal = Animal::find($id);
         $animal->update($request->all());
 
-        return redirect()->route('animales.index')
+        return redirect()->route('admin.animales.index')
         ->with('success', 'Animal actualizado.');
     }
 
@@ -106,6 +106,6 @@ class AnimalController extends Controller
     {
         $animal->delete();
  
-        return redirect()->route('animales.index')->with('success', 'Animal eliminado correctamente');
+        return redirect()->route('admin.animales.index')->with('success', 'Animal eliminado correctamente');
     }
 }

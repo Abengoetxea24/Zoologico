@@ -7,7 +7,7 @@
     <title>Añadir un cuidador</title>
 </head>
 <body>
-    <form action="{{ route('cuidadores.store')}}" method="post">
+    <form action="{{ route('admin.cuidadores.store')}}" method="post">
         @csrf
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre"><br><br>

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Habitatas</title>
+    <a href="{{ route('admin.animales.create') }}" class="bg-green-600 text-white py-2 px-4 rounded-lg mb-4 inline-block">
+
 </head>
 <body>
     <h1>Listado de Habitats</h1>
@@ -27,10 +29,10 @@
                     <td>{{ $habitat->temperatura }}</td>
                     <td>{{ $habitat->humedad }}</td>
                     <td>
-                        <a href="{{ route('habitats.edit', $habitat->id) }}">Editar</a>
-                        <a href="{{ route('habitats.show', $habitat->id) }}">Seleccionar</a>
+                        <a href="{{ route('admin.habitats.edit', $habitat->id) }}">Editar</a>
+                        <a href="{{ route('admin.habitats.show', $habitat->id) }}">Seleccionar</a>
 
-                        <form action="{{ route('habitats.destroy', $habitat->id) }}" method="POST" style="display:inline;"> 
+                        <form action="{{ route('admin.habitats.destroy', $habitat->id) }}" method="POST" style="display:inline;"> 
                         
                             @csrf
                             @method('DELETE')
@@ -43,7 +45,7 @@
             
         </tbody>
     </table>
-    <form action="{{ route('habitats.create') }}" style="display:inline;"> 
+    <form action="{{ route('admin.habitats.create') }}" style="display:inline;"> 
         
         <button type="submit">Añadir Nuevo</button>
     </form>

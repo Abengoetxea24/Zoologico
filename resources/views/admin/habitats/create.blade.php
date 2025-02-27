@@ -7,7 +7,7 @@
     <title>Añadir un Habitat</title>
 </head>
 <body>
-    <form action="{{ route('habitats.store')}}" method="post">
+    <form action="{{ route('admin.habitats.store')}}" method="post">
         @csrf
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre">

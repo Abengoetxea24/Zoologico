@@ -17,7 +17,7 @@ class CuidadorController extends Controller
        $cuidadores = Cuidador::all();
 
        // Pasar los tripulantes a la vista 'tripulantes.index'
-       return view('cuidadores.index', compact('cuidadores'));
+       return view('admin.cuidadores.index', compact('cuidadores'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CuidadorController extends Controller
      */
     public function create()
     {
-        return view('cuidadores.create');
+        return view('admin.cuidadores.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class CuidadorController extends Controller
 
         //return view('dashboard', ['cuidador' => $cuidador]);
 
-        return redirect()->route('cuidadores.index')->with('success', 'Cuidador creado correctamente');
+        return redirect()->route('admin.cuidadores.index')->with('success', 'Cuidador creado correctamente');
         
     }
 
@@ -58,7 +58,7 @@ class CuidadorController extends Controller
     public function show($id)
     {
         $cuidador = Cuidador::find($id);
-        return view('cuidadores.show', compact('cuidador'));
+        return view('admin.cuidadores.show', compact('cuidador'));
     }
 
     /**
@@ -67,7 +67,7 @@ class CuidadorController extends Controller
     public function edit($id)
     {
         $cuidador = Cuidador::find($id);
-        return view('cuidadores.edit', compact('cuidador'));
+        return view('admin.cuidadores.edit', compact('cuidador'));
     }
 
     /**
@@ -87,7 +87,7 @@ class CuidadorController extends Controller
 
         $cuidador->update($request->all());
 
-        return redirect()->route('cuidadores.index')
+        return redirect()->route('admin.cuidadores.index')
         ->with('success', 'Cuidador actualizado correctamente.');
 
 
@@ -100,6 +100,6 @@ class CuidadorController extends Controller
     {
         $cuidador->delete();
  
-        return redirect()->route('cuidadores.index')->with('success', 'Cuidador eliminado correctamente');
+        return redirect()->route('admin.cuidadores.index')->with('success', 'Cuidador eliminado correctamente');
     }
 }

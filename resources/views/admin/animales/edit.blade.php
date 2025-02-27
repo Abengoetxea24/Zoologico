@@ -1,4 +1,6 @@
-<form action="{{ isset($animal) ? route('animales.update', $animal->id) : route('animales.store') }}" method="POST" enctype="multipart/form-data">
+<a href="{{ route('admin.animales.create') }}" class="bg-green-600 text-white py-2 px-4 rounded-lg mb-4 inline-block">
+
+<form action="{{ isset($animal) ? route('admin.animales.update', $animal->id) : route('admin.animales.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if(isset($animal))
         @method('PUT')

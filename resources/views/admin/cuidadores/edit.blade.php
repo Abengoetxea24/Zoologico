@@ -1,4 +1,4 @@
-<form action="{{ route ('cuidadores.update', $cuidador->id)}}" method="post">
+<form action="{{ route ('admin.cuidadores.update', $cuidador->id)}}" method="post">
     @csrf
     @method('PUT')
 

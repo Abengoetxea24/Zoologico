@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Cuidadores</title>
+    <a href="{{ route('admin.animales.create') }}" class="bg-green-600 text-white py-2 px-4 rounded-lg mb-4 inline-block">
+
 </head>
 <body>
     <h1>Listado de Cuidadores</h1>
@@ -28,10 +30,10 @@
                     <td>{{ $cuidador->telefono }}</td>
                     <td>{{ $cuidador->email }}</td>
                     <td>
-                        <a href="{{ route('cuidadores.edit', $cuidador->id) }}">Editar</a>
-                        <a href="{{ route('cuidadores.show', $cuidador->id) }}">Seleccionar</a>
+                        <a href="{{ route('admin.cuidadores.edit', $cuidador->id) }}">Editar</a>
+                        <a href="{{ route('admin.cuidadores.show', $cuidador->id) }}">Seleccionar</a>
 
-                        <form action="{{ route('cuidadores.destroy', $cuidador->id) }}" method="POST" style="display:inline;"> 
+                        <form action="{{ route('admin.cuidadores.destroy', $cuidador->id) }}" method="POST" style="display:inline;"> 
                         
                             @csrf
                             @method('DELETE')
@@ -45,7 +47,7 @@
         </tbody>
     </table>
 
-    <form action="{{ route('cuidadores.create') }}" style="display:inline;"> 
+    <form action="{{ route('admin.cuidadores.create') }}" style="display:inline;"> 
         
         <button type="submit">Añadir Nuevo</button>
     </form>

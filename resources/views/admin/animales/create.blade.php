@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Añadir un Animal</h1>
-    <form action="{{ route('animales.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.animales.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>

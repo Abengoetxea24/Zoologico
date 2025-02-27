@@ -1,4 +1,4 @@
-<form action="{{ route ('habitats.update', $habitat->id)}}" method="post">
+<form action="{{ route ('admin.habitats.update', $habitat->id)}}" method="post">
     @csrf
     @method('PUT')
 
