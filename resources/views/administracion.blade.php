@@ -1,8 +1,14 @@
-<x-app-layout >
+
+
+<div>
+    @extends('admin.layout')
+</div>
+
+<div>
+@extends('layouts/navigation')
+</div>
 
 
 
 
-</x-app-layout>
 
-@extends('admin.layout')

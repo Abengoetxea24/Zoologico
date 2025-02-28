@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('habitats', function (Blueprint $table) {
             $table->id();
             $table->string("nombre");
-            $table->integer("temperatura");
-            $table->integer("humedad");
+            $table->string("temperatura"); 
+            $table->string("imagen");
+            $table->string("humedad");
+            $table->string("vegetacion");
+            $table->string("iluminacion");
+            $table->string("descripcion");
+
             $table->timestamps();
         });
     }

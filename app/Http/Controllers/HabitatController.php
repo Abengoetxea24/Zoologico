@@ -38,12 +38,19 @@ class HabitatController extends Controller
 
         $habitat->nombre = $request->nombre;
         $habitat->temperatura = $request->temperatura;
+        $habitat->imagen = $request->imagen;
         $habitat->humedad = $request->humedad;
+        $habitat->vegetacion = $request->vegetacion;
+        $habitat->iluminacion = $request->iluminacion;
+        $habitat->descripcion = $request->descripcion;
+        
 
         $habitat->save();
 
-        return redirect()->route('admin.habitats.index')->with('success', 'Habitat creado correctamente');
-        
+        return response()->json([
+            'success' => true,
+            'message' => 'Hábitat actualizado correctamente'
+        ]);        
     }
 
     /**
@@ -72,13 +79,20 @@ class HabitatController extends Controller
         $request->validate([
             'nombre' => 'required',
             'temperatura' => 'required',
-            'humedad' => 'required'
+            'imagen' => 'required',
+            'humedad' => 'required',
+            'vegetacion' => 'required',
+            'iluminacion' => 'required',
+            'descripcion' => 'required'
+
         ]);
 
         $habitat->update($request->all());
 
-        return redirect()->route('admin.habitats.index')
-            ->with('success', 'Habitat actualizado correctamente.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Hábitat actualizado correctamente'
+        ]);
     }
 
     /**
@@ -88,6 +102,9 @@ class HabitatController extends Controller
     {
         $habitat->delete();
  
-        return redirect()->route('admin.habitats.index')->with('success', 'Habitat eliminado correctamente');
+        return response()->json([
+            'success' => true,
+            'message' => 'Hábitat actualizado correctamente'
+        ]);
     }
 }

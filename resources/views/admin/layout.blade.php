@@ -135,6 +135,208 @@ function actualizarAnimal(event, url) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+
+
+function cargarContenido(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('contenido-dinamico').innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function eliminarCuidador(event, url) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    if (confirm('¿Estás seguro de que deseas eliminar este cuidador?')) {
+        fetch(url, {
+            method: 'POST', // Usar POST para simular DELETE
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ _method: 'DELETE' }) // Simular el método DELETE
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Recargar la lista de cuidadores después de eliminar
+                cargarContenido('{{ route('admin.cuidadores.index') }}');
+            } else {
+                alert(data.message || 'Error al eliminar el cuidador');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al eliminar el cuidador');
+        });
+    }
+}
+
+function crearCuidador(event, url) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    const formData = new FormData(event.target);
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Recargar la lista de cuidadores después de crear
+            cargarContenido('{{ route('admin.cuidadores.index') }}');
+        } else {
+            alert(data.message || 'Error al crear el cuidador');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function actualizarCuidador(event, url) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    const formData = new FormData(event.target);
+
+    fetch(url, {
+        method: 'POST', // Usar POST para simular PUT
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Recargar la lista de cuidadores después de actualizar
+            cargarContenido('{{ route('admin.cuidadores.index') }}');
+        } else {
+            alert(data.message || 'Error al actualizar el cuidador');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+
+
+
+
+
+
+function cargarContenido(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('contenido-dinamico').innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function eliminarHabitat(event, url) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    if (confirm('¿Estás seguro de que deseas eliminar este hábitat?')) {
+        fetch(url, {
+            method: 'POST', // Usar POST para simular DELETE
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ _method: 'DELETE' }) // Simular el método DELETE
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Recargar la lista de hábitats después de eliminar
+                cargarContenido('{{ route('admin.habitats.index') }}');
+            } else {
+                alert(data.message || 'Error al eliminar el hábitat');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al eliminar el hábitat');
+        });
+    }
+}
+
+function crearHabitat(event, url) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    const formData = new FormData(event.target);
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Recargar la lista de hábitats después de crear
+            cargarContenido('{{ route('admin.habitats.index') }}');
+        } else {
+            alert(data.message || 'Error al crear el hábitat');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function actualizarHabitat(event, url) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    const formData = new FormData(event.target);
+
+    fetch(url, {
+        method: 'POST', // Usar POST para simular PUT
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Recargar la lista de hábitats después de actualizar
+            cargarContenido('{{ route('admin.habitats.index') }}');
+        } else {
+            alert(data.message || 'Error al actualizar el hábitat');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
     </script>
 </body>
 </html>

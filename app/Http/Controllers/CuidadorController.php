@@ -48,8 +48,10 @@ class CuidadorController extends Controller
 
         //return view('dashboard', ['cuidador' => $cuidador]);
 
-        return redirect()->route('admin.cuidadores.index')->with('success', 'Cuidador creado correctamente');
-        
+        return response()->json([
+            'success' => true,
+            'message' => 'Cuidador actualizado correctamente'
+        ]);        
     }
 
     /**
@@ -87,8 +89,10 @@ class CuidadorController extends Controller
 
         $cuidador->update($request->all());
 
-        return redirect()->route('admin.cuidadores.index')
-        ->with('success', 'Cuidador actualizado correctamente.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Cuidador actualizado correctamente'
+        ]);
 
 
     }

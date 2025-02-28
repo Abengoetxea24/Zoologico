@@ -11,7 +11,11 @@ class Habitat extends Model
     protected $fillable = [
         'nombre',
         'temperatura',
-        'humedad'
+        'imagen',
+        'humedad',
+        'vegetacion',
+        'iluminacion',
+        'descripcion'
     ];
 
 
