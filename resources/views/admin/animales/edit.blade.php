@@ -1,41 +1,64 @@
-<a href="{{ route('admin.animales.create') }}" class="bg-green-600 text-white py-2 px-4 rounded-lg mb-4 inline-block">
+<div>
+    <!-- Título del formulario -->
+    <h1 class="text-2xl font-bold mb-4">
+        {{ isset($animal) ? 'Editar Animal' : 'Añadir un Animal' }}
+    </h1>
 
-<form action="{{ isset($animal) ? route('admin.animales.update', $animal->id) : route('admin.animales.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    @if(isset($animal))
-        @method('PUT')
-    @endif
+    <!-- Formulario -->
+    <form onsubmit="manejarFormulario(event, '{{ isset($animal) ? route('admin.animales.update', $animal->id) : route('admin.animales.store') }}')"
+          enctype="multipart/form-data">
+        @csrf
+        @if(isset($animal))
+            @method('PUT')
+        @endif
 
-    <!-- Campo: Nombre -->
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" value="{{ isset($animal) ? $animal->nombre : old('nombre') }}" required>
-    <br><br>
+        <!-- Campo: Nombre -->
+        <div class="mb-4">
+            <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="{{ isset($animal) ? $animal->nombre : old('nombre') }}" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        </div>
 
-    <!-- Campo: Especie -->
-    <label for="especie">Especie:</label>
-    <input type="text" id="especie" name="especie" value="{{ isset($animal) ? $animal->especie : old('especie') }}" required>
-    <br><br>
+        <!-- Campo: Especie -->
+        <div class="mb-4">
+            <label for="especie" class="block text-sm font-medium text-gray-700">Especie:</label>
+            <input type="text" id="especie" name="especie" value="{{ isset($animal) ? $animal->especie : old('especie') }}" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        </div>
 
-    <!-- Campo: Fecha de Nacimiento -->
-    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ isset($animal) ? $animal->fecha_nacimiento : old('fecha_nacimiento') }}" required>
-    <br><br>
+        <!-- Campo: Fecha de Nacimiento -->
+        <div class="mb-4">
+            <label for="fecha_nacimiento" class="block text-sm font-medium text-gray-700">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ isset($animal) ? $animal->fecha_nacimiento : old('fecha_nacimiento') }}" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        </div>
 
-    <!-- Campo: Habitat ID -->
-    <label for="habitat_id">ID del Hábitat:</label>
-    <input type="number" id="habitat_id" name="habitat_id" value="{{ isset($animal) ? $animal->habitat_id : old('habitat_id') }}" required>
-    <br><br>
+        <!-- Campo: Habitat ID -->
+        <div class="mb-4">
+            <label for="habitat_id" class="block text-sm font-medium text-gray-700">ID del Hábitat:</label>
+            <input type="number" id="habitat_id" name="habitat_id" value="{{ isset($animal) ? $animal->habitat_id : old('habitat_id') }}" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        </div>
 
-    <!-- Campo: Imagen -->
-    <label for="imagen">Imagen:</label>
-    <input type="file" id="imagen" name="imagen" accept="image/*" {{ !isset($animal) ? 'required' : '' }}>
-    <br><br>
+        <!-- Campo: Imagen -->
+        <div class="mb-4">
+            <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*" {{ !isset($animal) ? 'required' : '' }}
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        </div>
 
-    <!-- Campo: Descripción -->
-    <label for="descripcion">Descripción:</label><br>
-    <textarea id="descripcion" name="descripcion" rows="4" cols="50" required>{{ isset($animal) ? $animal->descripcion : old('descripcion') }}</textarea>
-    <br><br>
+        <!-- Campo: Descripción -->
+        <div class="mb-4">
+            <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">{{ isset($animal) ? $animal->descripcion : old('descripcion') }}</textarea>
+        </div>
 
-    <!-- Botón de Envío -->
-    <button type="submit">{{ isset($animal) ? 'Actualizar' : 'Crear' }} Animal</button>
-</form>
+        <!-- Botón de Envío -->
+        <div class="mb-4">
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg">
+                {{ isset($animal) ? 'Actualizar' : 'Crear' }} Animal
+            </button>
+        </div>
+    </form>
+</div>

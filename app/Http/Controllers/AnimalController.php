@@ -54,8 +54,10 @@ class AnimalController extends Controller
 
         //return view('dashboard', ['animales' => $animales]);
 
-        return redirect()->route('admin.animales.index')->with('success', 'Animal creado correctamente');
-
+        return response()->json([
+            'success' => true,
+            'message' => 'Animal actualizado correctamente'
+        ]);
     }
 
     /**
@@ -95,17 +97,35 @@ class AnimalController extends Controller
         $animal = Animal::find($id);
         $animal->update($request->all());
 
-        return redirect()->route('admin.animales.index')
-        ->with('success', 'Animal actualizado.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Animal actualizado correctamente'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Animal $animal)
-    {
-        $animal->delete();
- 
-        return redirect()->route('admin.animales.index')->with('success', 'Animal eliminado correctamente');
+    public function destroy($id) // Recibir el ID como parámetro
+{
+    // Buscar el animal en la base de datos
+    $animal = Animal::find($id);
+
+    // Verificar si el animal existe
+    if (!$animal) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Animal no encontrado'
+        ], 404); // Código de estado HTTP 404 (No encontrado)
     }
+
+    // Eliminar el animal
+    $animal->delete();
+
+    // Devolver una respuesta JSON
+    return response()->json([
+        'success' => true,
+        'message' => 'Animal eliminado correctamente'
+    ]);
+}
 }
