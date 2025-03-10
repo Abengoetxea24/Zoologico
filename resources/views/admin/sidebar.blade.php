@@ -19,7 +19,13 @@
     </ul>
       </div>
     <div id="contenido-dinamico" class="p-10" >
-     
+        
+            <img 
+                src="{{ asset('imagenes/admin.jpeg') }}" 
+                alt="Admin" 
+               
+            >
+       
     </div>
     
         
