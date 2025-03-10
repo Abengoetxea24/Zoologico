@@ -28,7 +28,7 @@
 }
 
 function eliminarAnimal(event, url) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+    event.preventDefault(); // Evitar el envío tradicional del formulario
 
     if (confirm('¿Estás seguro de que deseas eliminar este animal?')) {
         fetch(url, {
@@ -36,7 +36,8 @@ function eliminarAnimal(event, url) {
             headers: {
                 'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
                 'X-Requested-With': 'XMLHttpRequest',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ _method: 'DELETE' }) // Simular el método DELETE
         })
@@ -48,7 +49,13 @@ function eliminarAnimal(event, url) {
         })
         .then(data => {
             if (data.success) {
-                // Recargar la lista de animales después de eliminar
+                // Eliminar la fila de la tabla
+                const animalId = url.split('/').pop(); // Obtener el ID del animal desde la URL
+                const fila = document.getElementById(`animal-${animalId}`);
+                if (fila) {
+                    fila.remove(); // Eliminar la fila de la tabla
+                }
+                alert(data.message); // Mostrar mensaje de éxito
                 cargarContenido('{{ route('admin.animales.index') }}');
             } else {
                 alert(data.message || 'Error al eliminar el animal');
@@ -148,7 +155,7 @@ function cargarContenido(url) {
 }
 
 function eliminarCuidador(event, url) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+    event.preventDefault(); // Evitar el envío tradicional del formulario
 
     if (confirm('¿Estás seguro de que deseas eliminar este cuidador?')) {
         fetch(url, {
@@ -156,7 +163,8 @@ function eliminarCuidador(event, url) {
             headers: {
                 'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
                 'X-Requested-With': 'XMLHttpRequest',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ _method: 'DELETE' }) // Simular el método DELETE
         })
@@ -168,7 +176,14 @@ function eliminarCuidador(event, url) {
         })
         .then(data => {
             if (data.success) {
-                // Recargar la lista de cuidadores después de eliminar
+                // Eliminar la fila de la tabla
+                const cuidadorId = url.split('/').pop(); // Obtener el ID del cuidador desde la URL
+                const fila = document.getElementById(`cuidador-${cuidadorId}`);
+                if (fila) {
+                    fila.remove(); // Eliminar la fila de la tabla
+                }
+                alert(data.message); // Mostrar mensaje de éxito
+                // Recargar la lista de cuidadores
                 cargarContenido('{{ route('admin.cuidadores.index') }}');
             } else {
                 alert(data.message || 'Error al eliminar el cuidador');
@@ -251,7 +266,7 @@ function cargarContenido(url) {
 }
 
 function eliminarHabitat(event, url) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+    event.preventDefault(); // Evitar el envío tradicional del formulario
 
     if (confirm('¿Estás seguro de que deseas eliminar este hábitat?')) {
         fetch(url, {
@@ -259,7 +274,8 @@ function eliminarHabitat(event, url) {
             headers: {
                 'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
                 'X-Requested-With': 'XMLHttpRequest',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ _method: 'DELETE' }) // Simular el método DELETE
         })
@@ -271,7 +287,14 @@ function eliminarHabitat(event, url) {
         })
         .then(data => {
             if (data.success) {
-                // Recargar la lista de hábitats después de eliminar
+                // Eliminar la fila de la tabla
+                const habitatId = url.split('/').pop(); // Obtener el ID del hábitat desde la URL
+                const fila = document.getElementById(`habitat-${habitatId}`);
+                if (fila) {
+                    fila.remove(); // Eliminar la fila de la tabla
+                }
+                alert(data.message); // Mostrar mensaje de éxito
+                // Recargar la lista de hábitats
                 cargarContenido('{{ route('admin.habitats.index') }}');
             } else {
                 alert(data.message || 'Error al eliminar el hábitat');

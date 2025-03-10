@@ -46,6 +46,8 @@
                         </button>
 
                         <!-- Formulario para eliminar -->
+                       
+
                         <form onsubmit="eliminarHabitat(event, '{{ route('admin.habitats.destroy', $habitat->id) }}')" class="inline">
                             @csrf
                             @method('DELETE')
@@ -53,6 +55,7 @@
                                 Eliminar
                             </button>
                         </form>
+                       
                     </td>
                 </tr>
             @endforeach

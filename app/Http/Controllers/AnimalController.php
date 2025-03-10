@@ -106,26 +106,15 @@ class AnimalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id) // Recibir el ID como parámetro
-{
-    // Buscar el animal en la base de datos
-    $animal = Animal::find($id);
-
-    // Verificar si el animal existe
-    if (!$animal) {
+    public function destroy(Animal $animal)
+    {
+        // Eliminar el animal
+        $animal->delete();
+    
+        // Devolver una respuesta JSON
         return response()->json([
-            'success' => false,
-            'message' => 'Animal no encontrado'
-        ], 404); // Código de estado HTTP 404 (No encontrado)
+            'success' => true,
+            'message' => 'Animal eliminado correctamente'
+        ]);
     }
-
-    // Eliminar el animal
-    $animal->delete();
-
-    // Devolver una respuesta JSON
-    return response()->json([
-        'success' => true,
-        'message' => 'Animal eliminado correctamente'
-    ]);
-}
 }

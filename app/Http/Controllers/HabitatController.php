@@ -99,12 +99,14 @@ class HabitatController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Habitat $habitat)
-    {
-        $habitat->delete();
- 
-        return response()->json([
-            'success' => true,
-            'message' => 'Hábitat actualizado correctamente'
-        ]);
-    }
+{
+    // Eliminar el hábitat
+    $habitat->delete();
+
+    // Devolver una respuesta JSON
+    return response()->json([
+        'success' => true,
+        'message' => 'Hábitat eliminado correctamente'
+    ]);
+}
 }

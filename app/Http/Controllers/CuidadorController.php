@@ -101,9 +101,14 @@ class CuidadorController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Cuidador $cuidador)
-    {
-        $cuidador->delete();
- 
-        return redirect()->route('admin.cuidadores.index')->with('success', 'Cuidador eliminado correctamente');
-    }
+{
+    // Eliminar el cuidador
+    $cuidador->delete();
+
+    // Devolver una respuesta JSON
+    return response()->json([
+        'success' => true,
+        'message' => 'Cuidador eliminado correctamente'
+    ]);
+}
 }
