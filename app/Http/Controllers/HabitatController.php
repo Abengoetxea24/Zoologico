@@ -25,6 +25,7 @@ class HabitatController extends Controller
      */
     public function create()
     {
+        
         return view('admin.habitats.create');
     }
 

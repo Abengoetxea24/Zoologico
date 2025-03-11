@@ -20,11 +20,13 @@
                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
         </div>
 
-        <div class="mb-4">
-            <label for="habitat_id" class="block text-sm font-medium text-gray-700">ID del Hábitat:</label>
-            <input type="number" id="habitat_id" name="habitat_id" value="1" required
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
-        </div>
+        <select id="habitat_id" name="habitat_id" required
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+    <option value="" disabled selected>Seleccione un hábitat</option>
+    @foreach($habitats as $habitat)
+        <option value="{{ $habitat->id }}">{{ $habitat->id }} - {{ $habitat->nombre }}</option>
+    @endforeach
+</select>
 
         <div class="mb-4">
             <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen:</label>

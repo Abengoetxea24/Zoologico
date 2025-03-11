@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAnimalRequest;
 use App\Http\Requests\UpdateAnimalRequest;
 use App\Models\Animal;
+use App\Models\Habitat;
+
 
 class AnimalController extends Controller
 {
@@ -25,7 +27,9 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('admin.animales.create');
+        $habitats = Habitat::all(); // Obtener todos los hábitats
+        return view('admin.animales.create', compact('habitats'));
+        
     }
 
     /**
