@@ -25,7 +25,7 @@
     <option value="" disabled selected>Seleccione un hábitat</option>
     @foreach($habitats as $habitat)
         <option value="{{ $habitat->id }}">{{ $habitat->id }} - {{ $habitat->nombre }}</option>
-    @endforeach
+    @endforeach 
 </select>
 
         <div class="mb-4">
