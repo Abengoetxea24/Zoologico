@@ -4,103 +4,94 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Animal;
+use App\Models\Habitat;
 
-class AnimalsTableSeeder extends Seeder
+class HabitatSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Datos de los animales
-        $animals = [
+        // Datos de los hábitats
+        $habitats = [
             [
-                'nombre' => 'León',
-                'especie' => 'Panthera leo',
-                'fecha_nacimiento' => '2018-05-15',
-                'habitat_id' => 1,
-                'imagen' => 'Leon.jpg',
-                'descripcion' => "El 'rey de la selva'. Felino grande y poderoso.",
+                'nombre' => 'Selva Tropical',
+                'temperatura' => '25°C - 30°C',
+                'imagen' => 'selva_tropical.jpeg',
+                'humedad' => '70% - 90%',
+                'vegetacion' => 'Árboles frondosos, enredaderas y plantas tropicales',
+                'iluminacion' => 'Luz natural filtrada por la vegetación',
+                'descripcion' => 'Un hábitat húmedo y cálido, ideal para especies como monos, tucanes y jaguares.',
             ],
             [
-                'nombre' => 'Jirafa',
-                'especie' => 'Giraffa camelopardalis',
-                'fecha_nacimiento' => '2019-03-22',
-                'habitat_id' => 3,
-                'imagen' => 'Jirafa.jpg',
-                'descripcion' => 'El animal más alto. Largo cuello y manchas únicas.',
+                'nombre' => 'Desierto',
+                'temperatura' => '35°C - 45°C (día), 5°C - 15°C (noche)',
+                'imagen' => 'desierto.jpeg',
+                'humedad' => '10% - 20%',
+                'vegetacion' => 'Cactus, arbustos resistentes a la sequía',
+                'iluminacion' => 'Luz solar intensa durante el día',
+                'descripcion' => 'Un hábitat árido y seco, hogar de especies como camellos, serpientes de cascabel y escorpiones.',
             ],
             [
-                'nombre' => 'Elefante',
-                'especie' => 'Loxodonta africana',
-                'fecha_nacimiento' => '2015-07-10',
-                'habitat_id' => 3,
-                'imagen' => 'Elefante.jpg',
-                'descripcion' => 'Mamífero terrestre más grande. Trompa larga y colmillos de marfil.',
+                'nombre' => 'Sabana',
+                'temperatura' => '20°C - 30°C',
+                'imagen' => 'sabana.jpeg',
+                'humedad' => '40% - 60%',
+                'vegetacion' => 'Hierbas altas, árboles dispersos como acacias',
+                'iluminacion' => 'Luz solar directa',
+                'descripcion' => 'Un hábitat de pastizales abiertos, ideal para leones, cebras y jirafas.',
             ],
             [
-                'nombre' => 'Pingüino',
-                'especie' => 'Aptenodytes forsteri',
-                'fecha_nacimiento' => '2020-11-30',
-                'habitat_id' => 5,
-                'imagen' => 'Pinguino.jpg',
-                'descripcion' => 'Ave no voladora. Excelente nadador en climas fríos.',
+                'nombre' => 'Bosque Templado',
+                'temperatura' => '10°C - 20°C',
+                'imagen' => 'Bosque_Templado.jpeg',
+                'humedad' => '50% - 70%',
+                'vegetacion' => 'Árboles de hoja caduca, arbustos y musgo',
+                'iluminacion' => 'Luz solar moderada',
+                'descripcion' => 'Un hábitat con estaciones marcadas, hogar de osos, ciervos y lobos.',
             ],
             [
-                'nombre' => 'Tigre',
-                'especie' => 'Panthera tigris',
-                'fecha_nacimiento' => '2017-09-05',
-                'habitat_id' => 1,
-                'imagen' => 'Tigre.jpg',
-                'descripcion' => 'Felino más grande. Cazador solitario con pelaje rayado.',
+                'nombre' => 'Tundra',
+                'temperatura' => '-30°C - 10°C',
+                'imagen' => 'Tundra.jpeg',
+                'humedad' => '30% - 50%',
+                'vegetacion' => 'Musgos, líquenes y pequeñas plantas resistentes al frío',
+                'iluminacion' => 'Luz solar escasa en invierno, largos días en verano',
+                'descripcion' => 'Un hábitat frío y ventoso, ideal para renos, osos polares y zorros árticos.',
             ],
             [
-                'nombre' => 'Cebra',
-                'especie' => 'Equus quagga',
-                'fecha_nacimiento' => '2016-12-18',
-                'habitat_id' => 3,
-                'imagen' => 'Cebra.jpeg',
-                'descripcion' => 'Animal africano. Pelaje blanco y negro con rayas únicas.',
+                'nombre' => 'Pantano',
+                'temperatura' => '15°C - 25°C',
+                'imagen' => 'Pantano.jpeg',
+                'humedad' => '80% - 100%',
+                'vegetacion' => 'Plantas acuáticas, juncos y manglares',
+                'iluminacion' => 'Luz solar filtrada por la niebla',
+                'descripcion' => 'Un hábitat acuático y húmedo, hogar de cocodrilos, tortugas y aves acuáticas.',
             ],
             [
-                'nombre' => 'Oso',
-                'especie' => 'Ursus arctos',
-                'fecha_nacimiento' => '2014-04-25',
-                'habitat_id' => 4,
-                'imagen' => 'Oso.jpeg',
-                'descripcion' => 'Gran mamífero omnívoro. Fuerte y peludo, habita en bosques y montañas.',
+                'nombre' => 'Montaña Rocosa',
+                'temperatura' => '5°C - 15°C',
+                'imagen' => 'Montaña_rocosa.jpeg',
+                'humedad' => '40% - 60%',
+                'vegetacion' => 'Arbustos resistentes, hierbas y flores alpinas',
+                'iluminacion' => 'Luz solar intensa en altitudes altas',
+                'descripcion' => 'Un hábitat montañoso, ideal para cabras montesas, águilas y pumas.',
             ],
             [
-                'nombre' => 'Suricato',
-                'especie' => 'Suricata suricatta',
-                'fecha_nacimiento' => '2024-11-07',
-                'habitat_id' => 2,
-                'imagen' => 'Suricato.jpeg',
-                'descripcion' => 'Pequeño mamífero carnívoro de la familia de las mangostas. Vive en grupos sociales en las llanuras y desiertos del sur de África. Conocido por su comportamiento vigilante y postura erguida.',
-            ],
-            [
-                'nombre' => 'Lémur',
-                'especie' => 'Lemur catta',
-                'fecha_nacimiento' => '2024-12-10',
-                'habitat_id' => 1,
-                'imagen' => 'Lemur.jpeg',
-                'descripcion' => 'Primate endémico de Madagascar. Conocido por su cola anillada y su comportamiento social. Habita en bosques y zonas arbóreas.',
+                'nombre' => 'Arrecife de Coral',
+                'temperatura' => '22°C - 28°C',
+                'imagen' => 'Arrecife_coral.jpeg',
+                'humedad' => 'N/A (hábitat acuático)',
+                'vegetacion' => 'Corales, algas marinas',
+                'iluminacion' => 'Luz solar filtrada por el agua',
+                'descripcion' => 'Un hábitat submarino lleno de vida, hogar de peces tropicales, corales y tortugas marinas.',
             ],
         ];
 
-        // Insertar los datos en la tabla 'animals'
-        foreach ($animals as $animal) {
-            Animal::create([
-                'nombre' => $animal['nombre'],
-                'especie' => $animal['especie'],
-                'fecha_nacimiento' => $animal['fecha_nacimiento'],
-                'habitat_id' => $animal['habitat_id'],
-                'imagen' => $animal['imagen'],
-                'descripcion' => $animal['descripcion'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+        // Insertar los datos en la tabla 'habitats'
+        foreach ($habitats as $habitat) {
+            Habitat::create($habitat);
         }
     }
 }
