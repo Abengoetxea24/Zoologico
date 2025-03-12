@@ -13,8 +13,8 @@ class AnimalsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Datos de los animales
-        $animals = [
+         // Datos de los animales
+         $animals = [
             [
                 'nombre' => 'León',
                 'especie' => 'Panthera leo',
