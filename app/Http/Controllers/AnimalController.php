@@ -111,12 +111,12 @@ class AnimalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id): JsonResponse
+    public function destroy(Animal $animal)
     {
-     
-
-        $animal = Animal::findOrFail($id);
+        // Eliminar el animal
         $animal->delete();
+    
+        // Devolver una respuesta JSON
 
         return response()->json([
             'success' => true,

@@ -50,7 +50,7 @@ class HabitatController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Hábitat actualizado correctamente'
+            'message' => 'Hábitat creado correctamente'
         ]);        
     }
 

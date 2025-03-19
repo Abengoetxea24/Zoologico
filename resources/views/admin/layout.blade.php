@@ -110,6 +110,7 @@ function crearAnimal(event, url) {
     .then(data => {
         if (data.success) {
             // Recargar la lista de animales después de crear
+            alert(data.message);
             cargarContenido('{{ route('admin.animales.index') }}');
         } else {
             alert('Error al crear el animal');
@@ -135,6 +136,7 @@ function actualizarAnimal(event, url) {
     .then(data => {
         if (data.success) {
             // Recargar la lista de animales después de actualizar
+            alert(data.message);
             cargarContenido('{{ route('admin.animales.index') }}');
         } else {
             alert('Error al actualizar el animal');
@@ -214,6 +216,7 @@ function crearCuidador(event, url) {
     .then(data => {
         if (data.success) {
             // Recargar la lista de cuidadores después de crear
+            alert(data.message);
             cargarContenido('{{ route('admin.cuidadores.index') }}');
         } else {
             alert(data.message || 'Error al crear el cuidador');
@@ -240,6 +243,7 @@ function actualizarCuidador(event, url) {
     .then(data => {
         if (data.success) {
             // Recargar la lista de cuidadores después de actualizar
+            alert(data.message);
             cargarContenido('{{ route('admin.cuidadores.index') }}');
         } else {
             alert(data.message || 'Error al actualizar el cuidador');
@@ -325,6 +329,7 @@ function crearHabitat(event, url) {
     .then(data => {
         if (data.success) {
             // Recargar la lista de hábitats después de crear
+            alert(data.message);
             cargarContenido('{{ route('admin.habitats.index') }}');
         } else {
             alert(data.message || 'Error al crear el hábitat');
@@ -351,6 +356,7 @@ function actualizarHabitat(event, url) {
     .then(data => {
         if (data.success) {
             // Recargar la lista de hábitats después de actualizar
+            alert(data.message);
             cargarContenido('{{ route('admin.habitats.index') }}');
         } else {
             alert(data.message || 'Error al actualizar el hábitat');

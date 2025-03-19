@@ -50,7 +50,7 @@ class CuidadorController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Cuidador actualizado correctamente'
+            'message' => 'Cuidador creado correctamente'
         ]);        
     }
 
