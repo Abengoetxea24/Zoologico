@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCuidadorRequest;
 use App\Http\Requests\UpdateCuidadorRequest;
 use App\Models\Cuidador;
+use App\Http\Requests\CuidadorRequest;
+
 
 class CuidadorController extends Controller
 {
@@ -31,20 +33,14 @@ class CuidadorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCuidadorRequest $request)
+    public function store(CuidadorRequest $request)
     {
         
-        $cuidador = new Cuidador;
+$validatedData = $request->validated();
 
-        $cuidador->nombre = $request->nombre;
-        $cuidador->apellidos = $request->apellidos;
-        $cuidador->telefono = $request->telefono;
-        $cuidador->email = $request->email;
-        $cuidador->especialidad = $request->especialidad;
-
-       
-
-        $cuidador->save();
+$cuidador = new Cuidador;
+$cuidador->fill($validatedData);
+$cuidador->save();
 
         //return view('dashboard', ['cuidador' => $cuidador]);
 
@@ -75,16 +71,10 @@ class CuidadorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCuidadorRequest $request, Cuidador $cuidador)
+    public function update(CuidadorRequest $request, Cuidador $cuidador)
     {
         
-        $request->validate([
-            'nombre',
-            'apellidos',
-            'telefono',
-            'email',
-            'especialidad'
-        ]);
+       
 
 
         $cuidador->update($request->all());

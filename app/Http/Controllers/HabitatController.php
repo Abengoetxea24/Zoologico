@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreHabitatRequest;
 use App\Http\Requests\UpdateHabitatRequest;
 use App\Models\Habitat;
+use App\Http\Requests\HabitatRequest;
+
 
 class HabitatController extends Controller
 {
@@ -32,20 +34,13 @@ class HabitatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreHabitatRequest $request)
+    public function store(HabitatRequest $request)
     {
         
-        $habitat = new Habitat;
-
-        $habitat->nombre = $request->nombre;
-        $habitat->temperatura = $request->temperatura;
-        $habitat->imagen = $request->imagen;
-        $habitat->humedad = $request->humedad;
-        $habitat->vegetacion = $request->vegetacion;
-        $habitat->iluminacion = $request->iluminacion;
-        $habitat->descripcion = $request->descripcion;
-        
-
+    $validatedData = $request->validated();
+    $habitat = new Habitat;
+    
+    $habitat->fill($validatedData);
         $habitat->save();
 
         return response()->json([
@@ -75,18 +70,10 @@ class HabitatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHabitatRequest $request, Habitat $habitat)
+    public function update(HabitatRequest $request, Habitat $habitat)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'temperatura' => 'required',
-            'imagen' => 'required',
-            'humedad' => 'required',
-            'vegetacion' => 'required',
-            'iluminacion' => 'required',
-            'descripcion' => 'required'
 
-        ]);
+       
 
         $habitat->update($request->all());
 

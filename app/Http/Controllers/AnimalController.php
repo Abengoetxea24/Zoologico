@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Http\Requests\AnimalRequest;
 
 
 class AnimalController extends Controller
@@ -40,24 +41,25 @@ class AnimalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAnimalRequest $request): JsonResponse
+    public function store(AnimalRequest $request): JsonResponse
     {
         // Verificar si el usuario tiene permiso para crear animales
        
 
         $animal = new Animal;
 
+       
+
         $animal->nombre = $request->nombre;
         $animal->especie = $request->especie;
         $animal->fecha_nacimiento = $request->fecha_nacimiento;
         $animal->habitat_id = $request->habitat_id;
         $animal->descripcion = $request->descripcion;
-
+        
         if ($request->hasFile('imagen')) {
-            $imagen = $request->file('imagen');
-            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
-            $rutaImagen = $imagen->storeAs('public/imagenes', $nombreImagen);
-            $animal->imagen = $nombreImagen;
+            $file = $request->file('imagen');
+            $path = $file->store('public/imagenes');
+            $animal->imagen = $path;
         }
 
         $animal->save();
@@ -95,11 +97,11 @@ class AnimalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAnimalRequest $request, $id): JsonResponse
+    public function update(AnimalRequest $request, Animal $animal)
     {
         
+       
 
-        $animal = Animal::findOrFail($id);
         $animal->update($request->all());
 
         return response()->json([
