@@ -15,7 +15,7 @@
                 <th class="py-2 px-4 border-b">Nombre</th>
                 <th class="py-2 px-4 border-b">Especie</th>
                 <th class="py-2 px-4 border-b">Fecha de Nacimiento</th>
-                <th class="py-2 px-4 border-b">Habitat ID</th>
+                <th class="py-2 px-4 border-b">Habitat</th>
                 <th class="py-2 px-4 border-b">Imagen</th>
                 <th class="py-2 px-4 border-b">Descripción</th>
                 <th class="py-2 px-4 border-b">Acciones</th>
@@ -28,7 +28,7 @@
                     <td class="py-2 px-4 border-b">{{ $animal->nombre }}</td>
                     <td class="py-2 px-4 border-b">{{ $animal->especie }}</td>
                     <td class="py-2 px-4 border-b">{{ $animal->fecha_nacimiento }}</td>
-                    <td class="py-2 px-4 border-b">{{ $animal->habitat_id }}</td>
+                    <td class="py-2 px-4 border-b">{{ $animal->habitat->nombre }}</td>
                     <td class="py-2 px-4 border-b">
                         <img src="{{ asset('imagenes/' . $animal->imagen) }}" alt="{{ $animal->nombre }}" class="w-20 h-20 object-cover">
                     </td>
