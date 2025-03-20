@@ -58,7 +58,13 @@ class AnimalController extends Controller
         
         if ($request->hasFile('imagen')) {
             $file = $request->file('imagen');
-            $path = $file->store('public/imagenes');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            
+            $filenameParts = explode('_', $filename, 2); // Divide el nombre en 2 partes
+            $filenameClean = $filenameParts[1] ?? $filename; // Toma la parte después del _
+
+            $path = $file->storeAs($filenameClean);
+            
             $animal->imagen = $path;
         }
 
