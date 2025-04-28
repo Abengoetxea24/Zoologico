@@ -22,7 +22,8 @@ class Cuidador extends Model
 
     {
 
-        return $this->belongsToMany(Animal::class);
+        return $this->belongsToMany(Animal::class, 'animales_cuidadores', 'cuidadores_id', 'animales_id')
+        ->withPivot(['cuidadores_id', 'animales_id']);
 
     }
 

@@ -41,6 +41,26 @@
         </div>
 
         <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Cuidadores:</label>
+            @if(isset($cuidadores) && count($cuidadores) > 0)
+                <div class="mt-2 space-y-2">
+                    @foreach($cuidadores as $cuidador)
+                        <div class="flex items-center">
+                            <input type="checkbox" id="cuidador_{{ $cuidador->id }}" name="cuidadores[]" 
+                                   value="{{ $cuidador->id }}" 
+                                   class="rounded border-gray-300 text-blue-600 shadow-sm">
+                            <label for="cuidador_{{ $cuidador->id }}" class="ml-2 block text-sm text-gray-900">
+                                {{ $cuidador->nombre }} ({{ $cuidador->especialidad }})
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <p class="text-sm text-gray-500">No hay cuidadores disponibles</p>
+            @endif
+        </div>
+
+        <div class="mb-4">
             <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg">
                 Añadir Animal
             </button>

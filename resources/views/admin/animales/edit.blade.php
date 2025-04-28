@@ -54,6 +54,29 @@
                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">{{ isset($animal) ? $animal->descripcion : old('descripcion') }}</textarea>
         </div>
 
+          <!-- Sección de Cuidadores -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Cuidadores:</label>
+            @if($cuidadores->count() > 0)
+                <div class="mt-2 space-y-2">
+                    @foreach($cuidadores as $cuidador)
+                        <div class="flex items-center">
+                            <input type="checkbox" id="cuidador_{{ $cuidador->id }}" name="cuidadores[]" 
+                                   value="{{ $cuidador->id }}"
+                                   @if(isset($animal) && $animal->cuidadores->contains($cuidador->id)) checked @endif
+                                   class="rounded border-gray-300 text-blue-600 shadow-sm">
+                            <label for="cuidador_{{ $cuidador->id }}" class="ml-2 block text-sm text-gray-900">
+                                {{ $cuidador->nombre }} ({{ $habitat->especialidad ?? 'Sin especialidad' }})
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <p class="text-sm text-gray-500">No hay cuidadores disponibles</p>
+            @endif
+        </div>
+
+
         <!-- Botón de Envío -->
         <div class="mb-4">
             <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg">
@@ -62,3 +85,11 @@
         </div>
     </form>
 </div>
+
+
+
+
+
+
+
+
