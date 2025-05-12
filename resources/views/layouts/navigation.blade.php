@@ -16,11 +16,19 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
+                @role('guest')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link>
+                        {{ __('') }}
+                    </x-nav-link>
+                </div>
+                @else
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link  :href="route('administracion')" :active="request()->routeIs('administracion')">
                         {{ __('Administracion') }}
                     </x-nav-link>
                 </div>
+                @endrole
             </div>
 
             <!-- Settings Dropdown -->
